@@ -3,8 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: 'authorize',
+    loadChildren: () => import('./authorize/authorize.module').then(m => m.AuthorizePageModule)
+  },
+  {
+    path: 'unauthorize',
+    loadChildren: () => import('./unauthorize/unauthorize.module').then(m => m.UnauthorizePageModule)
   }
 ];
 @NgModule({
@@ -13,4 +17,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
