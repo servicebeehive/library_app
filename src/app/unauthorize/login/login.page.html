@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+<ion-card>
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <a style="margin-top: 10px;" routerLink="" (click)="onSignUp()">Register Yourself!</a>
+    </ion-item>
+    <div>
+      <ion-item>
+        <ion-label>Enter Phone Number:</ion-label>
+        <ion-input 
+          formControlName="phone" 
+          placeholder="Enter mobile number" 
+          appIntegerInputDirective
+          inputmode="numeric"
+          type="text"
+          maxlength="10">
+        </ion-input>
+        <ion-button [disabled]="!loginForm.valid" type="submit" (click)="show()">Get OTP</ion-button>
+      </ion-item>
+      <div *ngIf="phone.touched && phone.invalid">
+        <div *ngIf="phone.errors.required">Phone Number is Required.</div>
+        <div *ngIf="phone.errors.pattern">Enter 10 Digit Mobile Number.</div>
+      </div>
+    </div>
+  <div [hidden]="isDisplayed">
+      <ion-item>
+        <ion-label>Enter OTP:</ion-label>
+        <ion-input formControlName="otpverify" placeholder="Enter OTP" type="text"></ion-input>
+        <ion-button>Login</ion-button>
+      </ion-item>
+  </div>
+</form>
+</ion-card>
 </ion-content>

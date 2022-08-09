@@ -9,7 +9,17 @@ const routes: Routes = [
   {
     path: 'unauthorize',
     loadChildren: () => import('./unauthorize/unauthorize.module').then(m => m.UnauthorizePageModule)
-  }
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./unauthorize/login/login.module').then((m) => m.LoginPageModule),
+  },
+
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
 ];
 @NgModule({
   imports: [
