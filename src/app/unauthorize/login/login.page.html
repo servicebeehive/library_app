@@ -10,9 +10,10 @@
     <ion-item>
       <a style="margin-top: 10px;" routerLink="" (click)="onSignUp()">Register Yourself!</a>
     </ion-item>
-    <div>
+    <div *ngIf="isDisplayed">
       <ion-item>
         <ion-label>Enter Phone Number:</ion-label>
+        <div class="required-asterisk">*</div>
         <ion-input 
           formControlName="phone" 
           placeholder="Enter mobile number" 
@@ -21,19 +22,20 @@
           type="text"
           maxlength="10">
         </ion-input>
-        <ion-button [disabled]="!loginForm.valid" type="submit" (click)="show()">Get OTP</ion-button>
       </ion-item>
-      <div *ngIf="phone.touched && phone.invalid">
-        <div *ngIf="phone.errors.required">Phone Number is Required.</div>
-        <div *ngIf="phone.errors.pattern">Enter 10 Digit Mobile Number.</div>
+      <ion-button [disabled]="!loginForm.valid" expand="block" fill="solid" type="submit" (click)="show()">Get OTP</ion-button>
+      <div *ngIf="loginForm.get('phone').touched && loginForm.get('phone').invalid">
+        <div *ngIf="loginForm.get('phone').errors.required">Phone Number is Required.</div>
+        <div *ngIf="loginForm.get('phone').errors.pattern">Enter 10 Digit Mobile Number.</div>
       </div>
     </div>
   <div [hidden]="isDisplayed">
       <ion-item>
         <ion-label>Enter OTP:</ion-label>
+        <div class="required-asterisk">*</div>
         <ion-input formControlName="otpverify" placeholder="Enter OTP" type="text"></ion-input>
-        <ion-button>Login</ion-button>
       </ion-item>
+        <ion-button expand="block" fill="solid">Login</ion-button>
   </div>
 </form>
 </ion-card>

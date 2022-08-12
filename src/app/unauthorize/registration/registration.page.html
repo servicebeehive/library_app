@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Registration</ion-title>
+    <ion-button (click)="onClickLogout()" slot="end" fill="clear" color="tertiary">
+      <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -10,6 +13,7 @@
       <div>
         <ion-item>
           <ion-label>Enter First Name:</ion-label>
+          <div class="required-asterisk">*</div>
           <ion-input formControlName="firstname" type="text" placeholder="Enter Your First Name"></ion-input>
         </ion-item>
       </div>
@@ -22,18 +26,18 @@
       <div>
         <ion-item>
           <ion-label>Enter Whatsapp Number:</ion-label>
+          <div class="required-asterisk">*</div>
           <ion-input 
             appIntegerInputDirective
             inputmode="numeric"
             type="text"
             placeholder="Enter mobile number"
             maxlength="10"
-            formControlName="whatsno"
-            (click)="show()">
+            formControlName="whatsno">
           </ion-input>
         </ion-item>
       </div>
-    <div [hidden]="isDisplayed">
+    <div *ngIf="registrationForm.get('firstname').valid && registrationForm.get('whatsno').valid">
     <ion-item>
       <ion-label>Select Slot:</ion-label>
       <ion-select formControlName="slot" placeholder="Select Slot">
@@ -59,16 +63,17 @@
     <ion-footer>
       <ion-row no-padding>
         <ion-col center text-center>
-          <ion-button>Submit</ion-button>
+          <ion-button expand="block" fill="solid" (click)="onClick()">Submit</ion-button>
         </ion-col>
       </ion-row>
     </ion-footer>
-   <div>
+   <div [hidden]="isDisplayed">
     <ion-item>
       <ion-label>Enter OTP:</ion-label>
+      <div class="required-asterisk">*</div>
       <ion-input formControlName="otpverify" type="text" placeholder="Enter OTP"></ion-input>
-      <ion-button>Login</ion-button>
     </ion-item>
+      <ion-button expand="block" fill="solid">Login</ion-button>
   </div>
 </div>
     </form>

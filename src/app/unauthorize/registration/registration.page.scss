@@ -5,10 +5,10 @@ form {
 ion-content {
     --ion-background-color: #fff;
 }
-
-ion-input {
-    border-radius: 4px !important;
-    border: 1px solid;
-    border-color: #041e37;
-    --padding-start: 10px;
+.required-asterisk{
+    color: red;
+    font-weight: bold;
+    margin-left: 3px;
+    font-size: 1.2em;
+    content: "*";
 }

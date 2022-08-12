@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registration',
@@ -8,7 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistrationPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    public modalController: ModalController
+  ) { }
 
   ngOnInit() {
   }
@@ -26,10 +29,16 @@ export class RegistrationPage implements OnInit {
     amount : new FormControl(''),
     otpverify : new FormControl('')
   });
-
+ 
   isDisplayed = true;
-  show(){
+  onClick(){
     this.isDisplayed = !this.isDisplayed;
   }
 
-}
+  onClickLogout(){
+      this.modalController.dismiss({
+        'dismissed': true
+      });
+    }
+  }
+

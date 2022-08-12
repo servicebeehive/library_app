@@ -22,12 +22,6 @@ export class LoginPage implements OnInit {
     ]),
     otpverify: new FormControl('')
   });
-  get phone(){
-    return this.loginForm.get('phone');
-  }
-  get otpverify(){
-    return this.loginForm.get('otpverify');
-  }
 
   isDisplayed = true;
   show(){
