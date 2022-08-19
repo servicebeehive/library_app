@@ -1,0 +1,13 @@
+form {
+    padding-top: 25px;
+}
+
+ion-content {
+    --ion-background-color: #fff;
+}
+.required-asterisk::after{
+    color: red;
+    content:"*";
+    font-weight: bold;
+    margin-left: 2px;
+}
