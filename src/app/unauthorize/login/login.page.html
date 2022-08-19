@@ -12,8 +12,7 @@
     </ion-item>
     <div *ngIf="isDisplayed">
       <ion-item>
-        <ion-label>Enter Phone Number:</ion-label>
-        <div class="required-asterisk">*</div>
+        <ion-label class="required-asterisk" position="floating">Enter Phone Number:</ion-label>
         <ion-input 
           formControlName="phone" 
           placeholder="Enter mobile number" 
@@ -31,8 +30,7 @@
     </div>
   <div [hidden]="isDisplayed">
       <ion-item>
-        <ion-label>Enter OTP:</ion-label>
-        <div class="required-asterisk">*</div>
+        <ion-label class="required-asterisk" position="floating">Enter OTP:</ion-label>
         <ion-input formControlName="otpverify" placeholder="Enter OTP" type="text"></ion-input>
       </ion-item>
         <ion-button expand="block" fill="solid">Login</ion-button>

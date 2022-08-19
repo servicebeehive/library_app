@@ -5,10 +5,9 @@ form {
 ion-content {
     --ion-background-color: #fff;
 }
-.required-asterisk{
+.required-asterisk::after{
     color: red;
+    content:"*";
     font-weight: bold;
-    margin-left: 3px;
-    font-size: 1.2em;
-    padding-left: 0px;
+    margin-left: 2px;
 }

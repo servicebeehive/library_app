@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Registration</ion-title>
     <ion-button (click)="onClickLogout()" slot="end" fill="clear" color="tertiary">
-      <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
@@ -12,21 +12,19 @@
     <form [formGroup]="registrationForm">
       <div>
         <ion-item>
-          <ion-label>Enter First Name:</ion-label>
-          <div class="required-asterisk">*</div>
+          <ion-label class="required-asterisk" position="floating">Enter First Name:</ion-label>
           <ion-input formControlName="firstname" type="text" placeholder="Enter Your First Name"></ion-input>
         </ion-item>
       </div>
       <div>
         <ion-item>
-          <ion-label>Enter Last Name:</ion-label>
+          <ion-label position="floating">Enter Last Name:</ion-label>
           <ion-input formControlName="lastname" type="text" placeholder="Enter Your Last Name"></ion-input>
         </ion-item>
       </div>
       <div>
         <ion-item>
-          <ion-label>Enter Whatsapp Number:</ion-label>
-          <div class="required-asterisk">*</div>
+          <ion-label class="required-asterisk" position="floating">Enter Whatsapp Number:</ion-label>
           <ion-input 
             appIntegerInputDirective
             inputmode="numeric"
@@ -69,8 +67,7 @@
     </ion-footer>
    <div [hidden]="isDisplayed">
     <ion-item>
-      <ion-label>Enter OTP:</ion-label>
-      <div class="required-asterisk">*</div>
+      <ion-label class="required-asterisk" position="floating">Enter OTP:</ion-label>
       <ion-input formControlName="otpverify" type="text" placeholder="Enter OTP"></ion-input>
     </ion-item>
       <ion-button expand="block" fill="solid">Login</ion-button>
